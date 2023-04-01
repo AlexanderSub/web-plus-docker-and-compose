@@ -9,18 +9,12 @@ import { User } from './users/entities/user.entity';
 import { Wish } from './wishes/entities/wish.entity';
 import { Wishlist } from './wishlists/entities/wishlist.entity';
 import { AuthModule } from './auth/auth.module';
-// import { ConfigModule } from '@nestjs/config';
-// import configuration from './configuration';
 
 @Module({
   imports: [
-    // ConfigModule.forRoot({
-    //   load: [configuration],
-    //   envFilePath: '.env',
-    // }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.POSTGRES_HOST || 'database',
+      host: process.env.POSTGRES_HOST || 'localhost',
       port: parseInt(process.env.POSTGRES_PORT) || 5432,
       username: process.env.POSTGRES_USER || 'student',
       password: process.env.POSTGRES_PASSWORD || 'student',
